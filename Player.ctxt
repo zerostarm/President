@@ -10,4 +10,6 @@ comment4.params=deck\ num
 comment4.target=void\ discard(Deck,\ int)
 comment5.params=
 comment5.target=java.lang.String\ showHand()
-numComments=6
+comment6.params=trick
+comment6.target=void\ takeTurn(java.util.List)
+numComments=7

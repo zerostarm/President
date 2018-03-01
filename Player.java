@@ -30,4 +30,7 @@ public class Player
         }
         return temp;
     }
+    public void takeTurn(List<Card> trick) {
+        
+    }
 }
