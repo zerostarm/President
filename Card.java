@@ -25,6 +25,6 @@ public class Card
         }
     }
     public String toString() {
-        return ""+faces[face]+" of "+suits[suit];
+        return "The "+faces[face]+" of "+suits[suit];
     }
 }
