@@ -8,10 +8,21 @@
 import java.util.*;
 
 public class Main {
-	private Deck deck = new Deck();
+	private static Deck deck = new Deck();
+	private static int compnum = 0;
+	private static int playnum =0;
+	private static Scanner scan = new Scanner(System.in);
+	private static ArrayList<Player> players;
+	private static ArrayList<Computer> computers;
+
 	
 	public static void main(String[] args) {
-		System.out.println("This is a game of President you can play with up to 7 players and computers");
+		System.out.println("This is a game of Hearts you can play with 4 players and computers");
+		System.out.println("How many players and computers would you like? ");
+		playnum = scan.nextInt();
+		compnum = scan.nextInt();
+		
+		
 	}
 
 }
