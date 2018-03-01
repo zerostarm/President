@@ -2,6 +2,12 @@
 comment0.target=Player
 comment1.params=
 comment1.target=Player()
-comment2.params=card
-comment2.target=void\ draw(Card)
-numComments=3
+comment2.params=n
+comment2.target=Player(java.lang.String)
+comment3.params=card
+comment3.target=void\ draw(Card)
+comment4.params=deck\ num
+comment4.target=void\ discard(Deck,\ int)
+comment5.params=
+comment5.target=java.lang.String\ showHand()
+numComments=6
