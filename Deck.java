@@ -76,5 +76,8 @@ public class Deck
         Collections.shuffle(deck);
         Collections.shuffle(deck2);
     }
+    public String toString() {
+    	return deck.toString();
+    }
 
 }
