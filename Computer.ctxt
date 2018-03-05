@@ -1,8 +1,8 @@
 #BlueJ class context
 comment0.target=Computer
 comment0.text=\r\n\ TODO\ Put\ here\ a\ description\ of\ what\ this\ class\ does.\r\n\r\n\ @author\ Zeros.\r\n\ \ \ \ \ \ \ \ \ Created\ Mar\ 1,\ 2018.\r\n
-comment1.params=deck1
-comment1.target=Computer(Deck)
-comment2.params=deck1\ n
-comment2.target=Computer(Deck,\ java.lang.String)
+comment1.params=
+comment1.target=Computer()
+comment2.params=n
+comment2.target=Computer(java.lang.String)
 numComments=3

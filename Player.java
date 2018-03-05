@@ -14,16 +14,11 @@ public class Player {
     public String name;
 
     Player() {
-    }
-
-    Player(Deck deck1) {
         name = "null";
-        deck = deck1;
     }
 
-    Player(Deck deck1,String n) {
+    Player(String n) {
         name = n;
-        deck = deck1;
     }
 
     public void draw(Card card) {
@@ -48,9 +43,10 @@ public class Player {
     }
 
     public void takeTurn(List<Card> trick) {
-        
+
     }
-     public String toString() {
-         return name;
-        }
+
+    public String toString() {
+        return name;
+    }
 }

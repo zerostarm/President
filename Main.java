@@ -25,9 +25,9 @@ public class Main {
 		    if(i<playnum){
 		    System.out.println("What is player "+(i+1)+"'s name?");
 		    String temp = scan.nextLine();
-		    players.add(new Player(deck, temp));
+		    players.add(new Player(temp));
 		  } else {
-		    players.add(playnum, new Computer(deck, ""+(4-i)));
+		    players.add(playnum, new Computer(""+(4-i)));
 		  }
 		}
 		System.out.println((4-playnum)+" Computers added");
