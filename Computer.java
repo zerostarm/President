@@ -11,7 +11,7 @@ public class Computer extends Player{
 		name = "Computer"; 
 		deck = deck1;
 	}
-	Computer(String n, Deck deck1) {
+	Computer(Deck deck1, String n) {
 		name = n;
 		deck = deck1;
 	}
