@@ -50,4 +50,7 @@ public class Player {
     public void takeTurn(List<Card> trick) {
         
     }
+     public String toString() {
+         return name;
+        }
 }

@@ -9,20 +9,31 @@ import java.util.*;
 
 public class Main {
 	private static Deck deck = new Deck();
-	private static int compnum = 0;
-	private static int playnum =0;
 	private static Scanner scan = new Scanner(System.in);
-	private static ArrayList<Player> players;
-	private static ArrayList<Computer> computers;
+	private static ArrayList<Player> players = new ArrayList<Player>();
 
 	
 	public static void main(String[] args) {
-		System.out.println("This is a game of Hearts you can play with 4 players and computers");
-		System.out.println("How many players and computers would you like? ");
-		playnum = scan.nextInt();
-		compnum = scan.nextInt();
-		
-		
+		System.out.println("This is a game of Hearts you can play with 4 players");
+		System.out.println("How many players should be human?");
+		int playnum = scan.nextInt();
+		while(playnum>4||playnum<0){
+		    playnum = scan.nextInt();
+		}
+		scan.nextLine();
+		for(int i = 0;i<4;i++){
+		    if(i<playnum){
+		    System.out.println("What is player "+(i+1)+"'s name?");
+		    String temp = scan.nextLine();
+		    players.add(new Player(deck, temp));
+		  } else {
+		    players.add(playnum, new Computer(deck, ""+(4-i)));
+		  }
+		}
+		System.out.println((4-playnum)+" Computers added");
+		for(int i = 0;i<players.size();i++){
+		   System.out.println(players.get(i).toString()); 
+		  }
 	}
 
 }

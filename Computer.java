@@ -12,7 +12,7 @@ public class Computer extends Player{
 		deck = deck1;
 	}
 	Computer(Deck deck1, String n) {
-		name = n;
+		name = "Computer " + n;
 		deck = deck1;
 	}
 }

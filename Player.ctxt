@@ -14,4 +14,6 @@ comment6.params=
 comment6.target=java.lang.String\ showHand()
 comment7.params=trick
 comment7.target=void\ takeTurn(java.util.List)
-numComments=8
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9
