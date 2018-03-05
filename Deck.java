@@ -76,6 +76,14 @@ public class Deck
         Collections.shuffle(deck);
         Collections.shuffle(deck2);
     }
+    
+    public void deal(ArrayList<Player> players) {
+        while(deck.size()>0){
+            players.get(deck.size()%4).draw(deck.get(0));
+            deck.remove(0);
+        }
+    }
+    
     public String toString() {
     	return deck.toString();
     }
