@@ -8,53 +8,86 @@
 import java.util.*;
 
 public class Player {
-    public Deck deck;
-    private List<Card> hand = new ArrayList<Card>();
-    private List<Card> tricks = new ArrayList<Card>();
-    public String name;
-    private Scanner scan = new Scanner(System.in);
+	public Deck deck;
+	public List<Card> hand = new ArrayList<Card>();
+	public List<Card> wonTricks = new ArrayList<Card>();
 
-    Player() {
-        name = "null";
-    }
+	public String name;
+	private Scanner scan = new Scanner(System.in);
 
-    Player(String n) {
-        name = n;
-    }
+	Player() {
+		name = "null";
+	}
 
-    public void draw(Card card) {
-        hand.add(hand.size() - 1, card);
-    }
+	Player(String n) {
+		name = n;
+	}
 
-    public void discard(Deck deck, int num) {
-        for (int i = 0; i < num; i++) {
-            if (hand.size() != 0) {
-                deck.discard(hand.get(0));
-                hand.remove(0);
-            }
-        }
-    }
+	public void draw(Card card) {
+		hand.add(card);
+	}
 
-    public String showHand() {
-        String temp = "";
-        for (int i = 0; i < hand.size(); i++) {
-            temp += hand.get(i).toString() + "\n";
-        }
-        return temp;
-    }
+	public void discard(Deck deck, int num) {
+		for (int i = 0; i < num; i++) {
+			if (hand.size() != 0) {
+				deck.discard(hand.get(0));
+				hand.remove(0);
+			}
+		}
+	}
 
-    public void takeTurn(List<Card> trick) {
-    	System.out.println("It is " + name + "'s turn");
-    	System.out.println("Your cards are:");
-    	for(int i = 0; i<hand.size(); i++) {
-    		System.out.println("The hand index is: " + i + "\nThe card is: "+hand.get(i));
-    	}
-    	System.out.println("Please choose which cards to give away");
-    	int crd1 = scan.nextInt();
-    	
-    }
+	public String showHand() {
+		String temp = "";
+		for (int i = 0; i < hand.size(); i++) {
+			temp += hand.get(i).toString() + "\n";
+		}
+		return temp;
+	}
 
-    public String toString() {
-        return name;
-    }
+	public void takeTurn(Trick trick) {
+		System.out.println("It is " + name + "'s turn");
+		System.out.println("Your cards are:");
+		for (int i = 0; i < hand.size(); i++) {
+			System.out.println("The hand index is: " + i + "\nThe card is: " + hand.get(i));
+		}
+		System.out.println("The cards in the Trick so far are:\n " + trick);
+
+		System.out.println("Please choose which card to play");
+
+		int crd = 0;
+		do {
+			crd = scan.nextInt();
+		} while (crd > hand.size() || crd < 0);
+
+		Card card = hand.get(crd);
+		hand.remove(crd);
+
+		trick.play(card);
+	}
+
+	public Card[] passHand() {
+		System.out.println("It is " + name + "'s turn to pass");
+		System.out.println("Your cards are:");
+		for (int i = 0; i < hand.size(); i++) {
+			System.out.println("The hand index is: " + i + "\nThe card is: " + hand.get(i));
+		}
+		System.out.println("Please choose which cards to give away (by hand index)");
+		int crd1 = scan.nextInt();
+		int crd2 = scan.nextInt();
+
+		Card[] cards = new Card[2];
+
+		cards[0] = hand.get(crd1);
+		cards[1] = hand.get(crd2);
+
+		hand.remove(crd1);
+		hand.remove(crd2);
+
+		return cards;
+	}
+
+	public String toString() {
+		return name;
+	}
+
 }
