@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Trick
+comment1.params=
+comment1.target=Trick()
+comment2.params=card
+comment2.target=void\ play(Card)
+comment3.params=
+comment3.target=java.util.ArrayList\ getTrick()
+comment4.params=
+comment4.target=int\ getTrickSize()
+comment5.params=
+comment5.target=int\ highCard()
+numComments=6

@@ -19,9 +19,9 @@ public class Main {
         //Sets the players and computers for the game
         setPlayers();
         //Game execution
-        
+
     }
-    
+
     public static void setPlayers(){
         int playnum = scan.nextInt();
         while(playnum>4||playnum<0){
@@ -40,12 +40,46 @@ public class Main {
         System.out.println((4-playnum)+" Computers added");
         /* This is testing for me to check the creation of the players
         for(int i = 0;i<players.size();i++){
-            System.out.println(players.get(i).toString()); 
+        System.out.println(players.get(i).toString()); 
         }
-        */
+         */
     }
 
-    public static void playTrick() {
-    	
+    public static void playTrick(int startingPlayer) {
+        Trick trick = new Trick();
+        for(int i = 0;i<4;i++) {
+            players.get((startingPlayer+i)%4).takeTurn(trick);
+        }
+        int temp = trick.highCard();
+        players.get((startingPlayer+temp)%4).takeTrick(trick);
+        System.out.println("Player "+players.get((startingPlayer+temp)%4).toString()+" took the trick");
+    }
+
+    public static void passHand(int roundNum, int dir) {
+        if(roundNum!=3){
+            System.out.println("Cards will now be passed");
+            Card[][] passingHands = new Card[4][2];
+            for(int i = 0;i<4;i++) {
+                passingHands[i] = players.get(i).passHand();
+            }
+            for(int i = 0;i<4;i++) {
+                players.get(i).draw(passingHands[passDir(roundNum, dir, i)][0]);
+                players.get(i).draw(passingHands[passDir(roundNum, dir, i)][1]);
+            }
+        } else {
+            System.out.println("No cards will be passed this round");
+        }
+    }
+
+    public static int passDir(int roundNum, int dir, int player) {
+        if(roundNum==0) {
+            if(player==0){return 3;} else {return player - 1;}
+        }
+        if(roundNum==1) {
+            if(player==3){return 0;} else {return player + 1;}
+        }
+        if(roundNum==2) {
+            if(player==0){return 2;} else if(player==2) {return 0;} else if(player==3){return 1;} else if(player==1){return 3;} 
+        }
     }
 }

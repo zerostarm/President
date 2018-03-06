@@ -24,6 +24,12 @@ public class Card
             suit = s;
         }
     }
+    public int getFace() {
+        return face;
+    }
+    public int getSuit() {
+        return suit;
+    }
     public String toString() {
         return "The "+faces[face]+" of "+suits[suit];
     }
