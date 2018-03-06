@@ -45,5 +45,7 @@ public class Main {
         */
     }
 
-    public static void playTrick()
+    public static void playTrick() {
+    	
+    }
 }
