@@ -19,15 +19,15 @@ public class Computer extends Player {
 		switch (level) {
 		case 1:
 			level = 0;
-			compEasy(Trick trick);
+			compEasy(trick);
 			break;
 		case 2:
 			level = 1;
-			compMed(Trick trick);
+			compMed(trick);
 			break;
 		case 3:
 			level = 2;
-			compHard(Trick trick);
+			compHard(trick);
 			break;
 		}
 	}

@@ -35,6 +35,9 @@ public class Player {
 			}
 		}
 	}
+	public void takeTrick(Trick trick) {
+		
+	}
 
 	public String showHand() {
 		String temp = "";
