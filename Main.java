@@ -21,6 +21,7 @@ public class Main {
         setPlayers();
         //Game execution
         for(int i = 0; i<4; i++){
+            System.out.println("Round "+(i+1));
             playRound(i);
         }
     }
@@ -28,6 +29,7 @@ public class Main {
     public static void playRound(int roundNum){
         passHand(roundNum);
         int strt = 0;
+        boolean heartsBroken = false;
         for(int i = 0; i<13; i++) {
             strt = playTrick(strt);
         }
@@ -40,12 +42,16 @@ public class Main {
         for(int i = 0; i<4; i++){
             int temp = players.get(i).countPoints();
             if(temp == 26) {
+                System.out.println(players.get(i).toString()+" shot the moon!");
                 for(int j = 0; j<4; j++) {
                     if(i != j) {points[j] += temp;};
                 }
             } else {
                 points[i] += temp;
             }
+        }
+        for(int i = 0; i<4; i++){
+            System.out.println(players.get(i).toString()+" has a total of "+points[i]+" points");
         }
     }
     
@@ -88,6 +94,7 @@ public class Main {
             System.out.println("Cards will now be passed");
             Card[][] passingHands = new Card[4][2];
             for(int i = 0;i<4;i++) {
+                System.out.println("Player "+(i+1)+" is passing");
                 passingHands[i] = players.get(i).passHand();
             }
             for(int i = 0;i<4;i++) {
