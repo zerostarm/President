@@ -9,8 +9,9 @@ import java.util.*;
 
 public class Player {
 	public Deck deck;
-	public List<Card> hand = new ArrayList<Card>();
-	public List<Card> wonTricks = new ArrayList<Card>();
+	public Deck hand = new Deck();
+	public Deck wonTricks = new Deck();
+	public int points = 0;
 
 	public String name;
 	private Scanner scan = new Scanner(System.in);
@@ -35,8 +36,9 @@ public class Player {
 			}
 		}
 	}
+
 	public void takeTrick(Trick trick) {
-		
+		wonTricks.add(trick);
 	}
 
 	public String showHand() {
@@ -91,6 +93,16 @@ public class Player {
 
 	public String toString() {
 		return name;
+	}
+
+	public int countPoints() {
+		int hearts =0;
+		for(int i =0; i< wonTricks.size(); i++) {
+			if(wonTricks.get(i).getSuit() == 1) {
+				points +=1;
+			}
+			if(wonTricks.get(i).getSuit() == 0 && )
+		}
 	}
 
 }

@@ -11,38 +11,54 @@ public class Computer extends Player {
 		name = "Computer";
 	}
 
-	Computer(String n) {
+	Computer(String n, int l) {
 		name = "Computer " + n;
+		level = l;
 	}
 
-	public void takeTurn(Trick trick) {
+	public void takeTurn(Trick trick, int roundnum, int suit) {
 		switch (level) {
 		case 1:
 			level = 0;
-			compEasy(trick);
+			compEasy(trick, roundnum, suit);
 			break;
 		case 2:
 			level = 1;
-			compMed(trick);
+			compMed(trick, roundnum, suit);
 			break;
 		case 3:
 			level = 2;
-			compHard(trick);
+			compHard(trick, roundnum, suit);
 			break;
 		}
 	}
 
-	private void compEasy(Trick trick) {
-		int rand = (int) (Math.floor(Math.random()) * (hand.size()));
-		trick.play(hand.get(rand));
-		hand.remove(rand);
+	private void compEasy(Trick trick, int roundnum, int suit) {
+		while (1 == 1) {
+			int rand = (int) (Math.floor(Math.random()) * (hand.size()));
+			if (hand.findLowest(suit) > -1 && roundnum == 0) {
+				trick.play(hand.get(hand.findLowest(suit)));
+				hand.remove(hand.findLowest(suit));
+				break;
+			} else if (hand.get(rand).getSuit() == suit && roundnum > 0) {
+				trick.play(hand.get(rand));
+				hand.remove(rand);
+				break;
+			} else if (hand.get(rand).getSuit() != suit && roundnum > 0) {
+				trick.play(hand.get(rand));
+				hand.remove(rand);
+				break;
+			}
+		}
 	}
 
-	private void compMed(Trick trick) {
+	private void compMed(Trick trick, int roundnum, int suit) {
+		if (roundnum == 0) {
 
+		}
 	}
 
-	private void compHard(Trick trick) {
+	private void compHard(Trick trick, int roundnum, int suit) {
 
 	}
 }

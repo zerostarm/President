@@ -38,4 +38,7 @@ public class Trick
         }
         return temp;
     }
+    public Card get(int index) {
+    	return trick.get(index);
+    }
 }
