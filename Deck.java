@@ -13,8 +13,8 @@ public class Deck {
 	private Scanner in = new Scanner(System.in);
 
 	public Deck() {
-		fillDeck();
-		shuffle();
+		//fillDeck();
+		//shuffle();
 	}
 
 	public void fillDeck() {
