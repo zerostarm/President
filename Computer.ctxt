@@ -13,4 +13,6 @@ comment5.params=trick\ roundnum\ suit
 comment5.target=void\ compMed(Trick,\ int,\ int)
 comment6.params=trick\ roundnum\ suit
 comment6.target=void\ compHard(Trick,\ int,\ int)
-numComments=7
+comment7.params=
+comment7.target=Card[]\ passHand()
+numComments=8
