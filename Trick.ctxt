@@ -12,4 +12,6 @@ comment5.params=
 comment5.target=int\ highCard()
 comment6.params=index
 comment6.target=Card\ get(int)
-numComments=7
+comment7.params=
+comment7.target=java.lang.String\ toString()
+numComments=8
