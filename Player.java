@@ -96,13 +96,17 @@ public class Player {
 	}
 
 	public int countPoints() {
-		int hearts =0;
-		for(int i =0; i< wonTricks.size(); i++) {
-			if(wonTricks.get(i).getSuit() == 1) {
-				points +=1;
+		int hearts = 0;
+		for (int i = 0; i < wonTricks.size(); i++) {
+			if (wonTricks.get(i).getSuit() == 1) {
+				points += 1;
 			}
-			if(wonTricks.get(i).getSuit() == 0 && )
+			if (wonTricks.get(i).getSuit() == 0 && wonTricks.get(i).getFace() == 11) {
+				points += 25;
+			}
 		}
+
+		return points;
 	}
 
 }
