@@ -2,6 +2,8 @@
 comment0.target=Player
 comment1.params=
 comment1.target=Player()
+comment10.params=
+comment10.target=int\ countPoints()
 comment2.params=n
 comment2.target=Player(java.lang.String)
 comment3.params=card
@@ -18,4 +20,4 @@ comment8.params=
 comment8.target=Card[]\ passHand()
 comment9.params=
 comment9.target=java.lang.String\ toString()
-numComments=10
+numComments=11
