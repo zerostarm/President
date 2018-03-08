@@ -117,7 +117,9 @@ public class Player {
 		boolean temp = false;
 
 		for (int i = 0; i < hand.size(); i++) {
-			temp = hand.get(i).getFace() == 3 && hand.get(i).getSuit() == 11;
+			if(hand.get(i).getFace() == 1 && hand.get(i).getSuit() == 2) {
+				return true;
+			}
 		}
 		return temp;
 	}
