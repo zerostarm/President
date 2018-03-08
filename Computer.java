@@ -61,4 +61,19 @@ public class Computer extends Player {
 	private void compHard(Trick trick, int roundnum, int suit) {
 
 	}
+	
+	public Card[] passHand() {
+		int crd1 = (int)(Math.random() * (hand.size()-1));
+		int crd2 = (int)(Math.random() * (hand.size()- 1));
+
+		Card[] cards = new Card[2];
+
+		cards[0] = hand.get(crd1);
+		cards[1] = hand.get(crd2);
+
+		hand.remove(crd1);
+		hand.remove(crd2);
+
+		return cards;
+	}
 }
