@@ -31,6 +31,9 @@ public class Main {
         passHand(roundNum);
         int strt = 0;
         boolean heartsBroken = false;
+        for(int i = 0;i<4;i++) {
+            if(players.get(i).has2ofClubs()) {strt=i;}
+        }
         for (int i = 0; i < 13; i++) {
             strt = playTrick(strt);
         }
