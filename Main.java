@@ -99,11 +99,11 @@ public class Main {
 	public static int playTrick(int startingPlayer, int roundnum) {
 		Trick trick = new Trick();
 		for (int i = 0; i < 4; i++) {
-			if (players.get((startingPlayer + i) % 4) instanceof Computer) {
-				players.get((startingPlayer + i) % 4).takeTurn(trick);
-			}
-			else {
+			if (players.get((startingPlayer + i) % 4) instanceof Computer) { //Checks if Computer
 				players.get((startingPlayer + i) % 4).takeTurn(trick, roundnum, trick.getTrump());
+			}
+			else { //Does this if Player
+				players.get((startingPlayer + i) % 4).takeTurn(trick);
 			}
 		}
 		int temp = trick.highCard();

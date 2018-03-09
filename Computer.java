@@ -17,19 +17,24 @@ public class Computer extends Player {
 	}
 
 	public void takeTurn(Trick trick, int roundnum, int suit) {
-		switch (level) {
-		case 1:
-			level = 0;
-			compEasy(trick, roundnum, suit);
-			break;
-		case 2:
-			level = 1;
-			compMed(trick, roundnum, suit);
-			break;
-		case 3:
-			level = 2;
-			compHard(trick, roundnum, suit);
-			break;
+		if (has2ofClubs() == true) {
+			//System.out.println("You had the starting card, the Two of Clubs, and played it.");
+			trick.play(hand.get(get2ofClubs()));
+		} else {
+			switch (level) {
+			case 1:
+				level = 0;
+				compEasy(trick, roundnum, suit);
+				break;
+			case 2:
+				level = 1;
+				compMed(trick, roundnum, suit);
+				break;
+			case 3:
+				level = 2;
+				compHard(trick, roundnum, suit);
+				break;
+			}
 		}
 	}
 

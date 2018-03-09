@@ -33,7 +33,7 @@ public class Trick {
 	public int highCard() {
 		int temp = 0;
 		int tempVal = 0;
-		for (int i = 0; i < 4; i++) {
+		for (int i = 0; i < trick.size(); i++) {
 			if (trick.get(i).getFace() > tempVal) {
 				tempVal = trick.get(i).getFace();
 				temp = i;
@@ -50,7 +50,7 @@ public class Trick {
 		if (trick.size() > 0) {
 			String temp = "";
 			for (int i = 0; i < trick.size(); i++) {
-				temp.concat(trick.get(i).getFace() + " of " + trick.get(i).getSuit());
+				temp = temp.concat(trick.get(i).toString());
 			}
 			return temp;
 		} else {

@@ -63,6 +63,7 @@ public class Player {
 		if (has2ofClubs() == true) {
 			System.out.println("You had the starting card, the Two of Clubs, and played it.");
 			trick.play(hand.get(get2ofClubs()));
+			hand.remove(get2ofClubs());
 		} else {
 			System.out.println("Please choose which card to play");
 
