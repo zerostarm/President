@@ -60,18 +60,22 @@ public class Player {
 			System.out.println("\t" + i + "\t " + hand.get(i));
 		}
 		System.out.println("The cards in the Trick so far are:\n " + trick);
+		if (has2ofClubs() == true) {
+			System.out.println("You had the starting card, the Two of Clubs, and played it.");
+			trick.play(hand.get(get2ofClubs()));
+		} else {
+			System.out.println("Please choose which card to play");
 
-		System.out.println("Please choose which card to play");
+			int crd = 0;
+			do {
+				crd = scan.nextInt();
+			} while (crd > hand.size() || crd < 0);
 
-		int crd = 0;
-		do {
-			crd = scan.nextInt();
-		} while (crd > hand.size() || crd < 0);
+			Card card = hand.get(crd);
+			hand.remove(crd);
 
-		Card card = hand.get(crd);
-		hand.remove(crd);
-
-		trick.play(card);
+			trick.play(card);
+		}
 	}
 
 	public Card[] passHand() {
@@ -117,10 +121,19 @@ public class Player {
 		boolean temp = false;
 
 		for (int i = 0; i < hand.size(); i++) {
-			if(hand.get(i).getFace() == 1 && hand.get(i).getSuit() == 2) {
+			if (hand.get(i).getFace() == 1 && hand.get(i).getSuit() == 2) {
 				return true;
 			}
 		}
 		return temp;
+	}
+
+	public int get2ofClubs() {
+		for (int i = 0; i < hand.size(); i++) {
+			if (hand.get(i).getFace() == 1 && hand.get(i).getSuit() == 2) {
+				return i;
+			}
+		}
+		return -1;
 	}
 }
