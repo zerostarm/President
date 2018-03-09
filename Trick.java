@@ -57,4 +57,7 @@ public class Trick {
 			return "there are no cards in the trick";
 		}
 	}
+	public int getTrump() {
+		return trump;
+	}
 }

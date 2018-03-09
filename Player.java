@@ -78,6 +78,9 @@ public class Player {
 		}
 	}
 
+	public void takeTurn(Trick trick, int roundnum, int suit) {
+	}
+
 	public Card[] passHand() {
 		System.out.println("It is " + name + "'s turn to pass");
 		System.out.println("      Index         Card");
