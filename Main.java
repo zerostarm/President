@@ -108,6 +108,7 @@ public class Main {
 		}
 		int temp = trick.highCard();
 		players.get((startingPlayer + temp) % 4).takeTrick(trick);
+		System.out.println("The trick was: "+trick.toString());
 		System.out.println("Player " + players.get((startingPlayer + temp) % 4).toString() + " took the trick");
 		return (startingPlayer + temp) % 4;
 	}

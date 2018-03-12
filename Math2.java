@@ -29,4 +29,14 @@ public class Math2
     public static double min(double a, double b) {
         if(a<b){return a;} else {return b;}
     }
+    public static int getInt(int min, int max, Scanner in) {
+        int temp = min - 1;
+        boolean firstOffense = true;
+        while(temp >= min && temp <= max) {
+            temp = in.nextInt(); 
+            if(firstOffense){System.out.println("Not an appropriate number");}
+            firstOffense = false;
+        }
+        return temp;
+    }
 }

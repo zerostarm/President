@@ -34,7 +34,7 @@ public class Trick {
 		int temp = 0;
 		int tempVal = 0;
 		for (int i = 0; i < trick.size(); i++) {
-			if (trick.get(i).getFace() > tempVal) {
+			if (trick.get(i).getFace() > tempVal && trick.get(i).getSuit() == trump) {
 				tempVal = trick.get(i).getFace();
 				temp = i;
 			}
@@ -50,7 +50,7 @@ public class Trick {
 		if (trick.size() > 0) {
 			String temp = "";
 			for (int i = 0; i < trick.size(); i++) {
-				temp = temp.concat(trick.get(i).toString());
+				temp = temp.concat(trick.get(i).toString()+" ");
 			}
 			return temp;
 		} else {
