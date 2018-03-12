@@ -138,7 +138,7 @@ public class Player {
 		}
 		return -1;
 	}
-	public void ChooseCard(Trick trick){
+	public void ChooseCard(Trick trick){//needs to choose a card and make sure it is the right suit if the person has the suit. 
 		System.out.println("Please choose which card to play");
 
 		int crd = 0;

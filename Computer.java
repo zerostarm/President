@@ -18,7 +18,8 @@ public class Computer extends Player {
 
 	public void takeTurn(Trick trick, int roundnum, int suit) {
 		if (has2ofClubs() == true) {
-			//System.out.println("You had the starting card, the Two of Clubs, and played it.");
+			// System.out.println("You had the starting card, the Two of Clubs, and played
+			// it.");
 			trick.play(hand.get(get2ofClubs()));
 		} else {
 			switch (level) {
@@ -41,7 +42,11 @@ public class Computer extends Player {
 	private void compEasy(Trick trick, int roundnum, int suit) {
 		while (1 == 1) {
 			int rand = (int) (Math.floor(Math.random()) * (hand.size()));
-			if (hand.findLowest(suit) > -1 && roundnum == 0) {
+			if (has2ofClubs() == true) {
+				trick.play(hand.get(get2ofClubs()));
+				hand.remove(get2ofClubs());
+				break;
+			}else if (hand.findLowest(suit) > -1 && roundnum == 0) {
 				trick.play(hand.get(hand.findLowest(suit)));
 				hand.remove(hand.findLowest(suit));
 				System.out.println("Comp easy case 1");
