@@ -65,21 +65,12 @@ public class Player {
 			trick.play(hand.get(get2ofClubs()));
 			hand.remove(get2ofClubs());
 		} else {
-			System.out.println("Please choose which card to play");
-
-			int crd = 0;
-			do {
-				crd = scan.nextInt();
-			} while (crd > hand.size() || crd < 0);
-
-			Card card = hand.get(crd);
-			hand.remove(crd);
-
-			trick.play(card);
+			ChooseCard(trick);
 		}
 	}
 
 	public void takeTurn(Trick trick, int roundnum, int suit) {
+		System.out.println("empty");
 	}
 
 	public Card[] passHand() {
@@ -88,18 +79,25 @@ public class Player {
 		for (int i = 0; i < hand.size(); i++) {
 			System.out.println("\t" + i + "\t " + hand.get(i));
 		}
-		System.out.println("Please choose which cards to give away (by hand index)");
-		int crd1 = scan.nextInt();
-		int crd2 = scan.nextInt();
-
+		boolean temp = false;
 		Card[] cards = new Card[2];
+		while (temp == false) {
+			System.out.println("Please choose which cards to give away (by hand index)");
+			int crd1 = scan.nextInt();
+			int crd2 = scan.nextInt();
 
-		cards[0] = hand.get(Math2.max(crd1, crd2));
-		cards[1] = hand.get(Math2.min(crd1, crd2));
+			if (crd1 == crd2) {
+				System.out.println("Please choose two different cards");
+			} else {
+				cards[0] = hand.get(Math2.max(crd1, crd2));
+				cards[1] = hand.get(Math2.min(crd1, crd2));
 
-		hand.remove(Math2.max(crd1, crd2));
-		hand.remove(Math2.min(crd1, crd2));
+				hand.remove(Math2.max(crd1, crd2));
+				hand.remove(Math2.min(crd1, crd2));
+				temp = true;
 
+			}
+		}
 		return cards;
 	}
 
@@ -139,5 +137,18 @@ public class Player {
 			}
 		}
 		return -1;
+	}
+	public void ChooseCard(Trick trick){
+		System.out.println("Please choose which card to play");
+
+		int crd = 0;
+		do {
+			crd = scan.nextInt();
+		} while (crd > hand.size() || crd < 0);
+
+		Card card = hand.get(crd);
+		hand.remove(crd);
+		
+		trick.play(card);
 	}
 }

@@ -44,14 +44,17 @@ public class Computer extends Player {
 			if (hand.findLowest(suit) > -1 && roundnum == 0) {
 				trick.play(hand.get(hand.findLowest(suit)));
 				hand.remove(hand.findLowest(suit));
+				System.out.println("Comp easy case 1");
 				break;
 			} else if (hand.get(rand).getSuit() == suit && roundnum > 0) {
 				trick.play(hand.get(rand));
 				hand.remove(rand);
+				System.out.println("Comp easy case 2");
 				break;
 			} else if (hand.get(rand).getSuit() != suit && roundnum > 0) {
 				trick.play(hand.get(rand));
 				hand.remove(rand);
+				System.out.println("Comp easy case 3");
 				break;
 			}
 		}
