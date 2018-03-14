@@ -23,16 +23,14 @@ public class Computer extends Player {
 			trick.play(hand.get(get2ofClubs()));
 		} else {
 			switch (level) {
-			case 1:
-				level = 0;
+			case 0:
+				//System.out.println("EASY COMPUTER  KJGNLKJNDJNINLKGRJNKJSGDN");
 				compEasy(trick, roundnum, suit);
 				break;
-			case 2:
-				level = 1;
+			case 1:
 				compMed(trick, roundnum, suit);
 				break;
-			case 3:
-				level = 2;
+			case 2:
 				compHard(trick, roundnum, suit);
 				break;
 			}
@@ -61,6 +59,9 @@ public class Computer extends Player {
 				hand.remove(rand);
 				System.out.println("Comp easy case 3");
 				break;
+			}
+			else {
+				System.out.println("Failure");
 			}
 		}
 	}

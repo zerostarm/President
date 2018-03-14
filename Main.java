@@ -39,6 +39,7 @@ public class Main {
 		for (int i = 0; i < 13; i++) {
 			strt = playTrick(strt, i);
 		}
+
 		assignPoints();
 		deck = new Deck();
 		deck.shuffle();
@@ -99,16 +100,16 @@ public class Main {
 	public static int playTrick(int startingPlayer, int roundnum) {
 		Trick trick = new Trick();
 		for (int i = 0; i < 4; i++) {
-			if (players.get((startingPlayer + i) % 4) instanceof Computer) { //Checks if Computer
+			if (players.get((startingPlayer + i) % 4) instanceof Computer) { // Checks if Computer
 				players.get((startingPlayer + i) % 4).takeTurn(trick, roundnum, trick.getTrump());
-			}
-			else { //Does this if Player
+
+			} else { // Does this if Player
 				players.get((startingPlayer + i) % 4).takeTurn(trick);
 			}
 		}
 		int temp = trick.highCard();
 		players.get((startingPlayer + temp) % 4).takeTrick(trick);
-		System.out.println("The trick was: "+trick.toString());
+		System.out.println("The trick was: " + trick.toString());
 		System.out.println("Player " + players.get((startingPlayer + temp) % 4).toString() + " took the trick");
 		return (startingPlayer + temp) % 4;
 	}
