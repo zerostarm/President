@@ -21,6 +21,7 @@ public class Computer extends Player {
 			// System.out.println("You had the starting card, the Two of Clubs, and played
 			// it.");
 			trick.play(hand.get(get2ofClubs()));
+			hand.remove(get2ofClubs());
 		} else {
 			switch (level) {
 			case 0:
@@ -44,7 +45,7 @@ public class Computer extends Player {
 				trick.play(hand.get(get2ofClubs()));
 				hand.remove(get2ofClubs());
 				break;
-			}else if (hand.findLowest(suit) > -1 && roundnum == 0) {
+			} else if (hand.findLowest(suit) > -1) {
 				trick.play(hand.get(hand.findLowest(suit)));
 				hand.remove(hand.findLowest(suit));
 				System.out.println("Comp easy case 1");
@@ -59,8 +60,7 @@ public class Computer extends Player {
 				hand.remove(rand);
 				System.out.println("Comp easy case 3");
 				break;
-			}
-			else {
+			} else {
 				System.out.println("Failure");
 			}
 		}
