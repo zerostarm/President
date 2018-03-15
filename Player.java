@@ -144,7 +144,7 @@ public class Player {
 		int crd = 0;
 		do {
 			crd = scan.nextInt();
-		} while (crd > hand.size() || crd < 0);
+		} while (crd > hand.size() || crd < 0 || (hand.findLowest(trick.getTrump()) > -1 && hand.get(crd).getSuit() != trick.getTrump()));
 
 		Card card = hand.get(crd);
 		hand.remove(crd);
